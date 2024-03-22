@@ -1,0 +1,22 @@
+{% extends 'catalog/base.html' %}
+{% load image_tag %}
+{% block content %}
+  <div class="col-12">
+    <div class="card box-shadow">
+      <div class="card-header form-control">
+        <h4 class="my-0 font-weight-normal">{{ object }}</h4>
+      </div>
+      <div class="card-body">
+        <img class="card-img-top" src="{{ object.image_product|user_media }}" />
+        <h3 class="card-title pricing-card-title">Цена: {{ object.price }} ₽</h3>
+        <p class="list-unstyled mt-3 mb-4 text-start m-3">
+          Категория: {{ object.category }}<br />
+          Дата добавления: {{ object.created_at }}<br />
+          Описание: {{ object.description }}
+        </p>
+        <a class="btn btn-lg btn-block btn-outline-primary">Купить</a>
+        <a class="btn btn-lg btn-block btn-outline-primary" href="{% url 'catalog:home' %}">Назад к списку товаров</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}
